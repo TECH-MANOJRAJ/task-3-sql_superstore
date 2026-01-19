@@ -1,111 +1,101 @@
-📊 SQL Task 3 – Superstore Sales Analysis
-
+#Task-3-sql_superstore Data Analysis
 Filtering • Sorting • Aggregations
 
-📌 Project Overview
+## 📌 Project Overview
+This project is part of the **Data Analyst Internship – Task 3**.  
+The objective of this task is to build a strong foundation in **SQL basics** by performing filtering, sorting, and aggregation operations on a real-world retail dataset.
 
-This project focuses on applying fundamental SQL concepts to analyze a real-world retail dataset.
-The objective is to gain hands-on experience with data filtering, sorting, grouping, and aggregation, which are core skills for any Data Analyst role.
+The analysis was done using the **Superstore dataset**, which contains detailed sales, customer, and regional information.
 
-🗂 Dataset
+---
 
-Superstore Dataset (CSV)
-A retail sales dataset containing detailed information about:
+## 🗂 Dataset
+**Superstore Dataset (CSV)**  
+The dataset includes the following key information:
+- Order details (Order ID, Order Date, Ship Date)
+- Customer details (Customer Name, Segment)
+- Product details (Category, Sub-Category)
+- Regional data (Region, State, City)
+- Sales and Profit values
 
-Orders
+---
 
-Customers
+## 🛠 Tools & Technologies
+- **SQLite Online** – SQL execution environment  
+- **SQL (SQLite dialect)** – Querying and analysis  
+- **CSV format** – Data import and export  
+- **GitHub** – Version control and task submission  
 
-Product categories
+---
 
-Regions
+## ⚙️ Workflow
 
-Sales and profit metrics
+### 1️⃣ Data Import
+- Downloaded the Superstore CSV file  
+- Imported the dataset into SQLite Online  
+- Selected **“Column name: From first row”** to correctly use headers  
+- Created a table named `superstore`
 
-This dataset is widely used for beginner-to-intermediate analytics practice.
+---
 
-🛠 Tools & Technologies
+### 2️⃣ Data Validation
+- Verified table structure using:
+  ```sql
+  PRAGMA table_info(superstore);
+Confirmed successful import by counting total records:
 
-SQLite Online – SQL execution environment
-
-CSV Import Utility – Data ingestion
-
-SQL (SQLite dialect) – Querying and analysis
-
-GitHub – Version control and submission
-
-⚙️ Workflow & Methodology
-1️⃣ Data Import
-
-Imported the Superstore CSV file into SQLite
-
-Ensured column headers were correctly mapped by selecting “Column name: From first row” during import
-
-Created a table named orders
-
-2️⃣ Data Validation
-
-Verified table structure using:
-
-PRAGMA table_info(orders);
-
-
-Validated record count to confirm successful data ingestion:
-
-SELECT COUNT(*) FROM orders;
+SELECT COUNT(*) FROM superstore;
 
 3️⃣ Filtering & Sorting
 
-Used WHERE clauses to filter records by category and customer attributes
+Used WHERE to filter records by category and other conditions
 
-Applied ORDER BY to rank records based on sales values
+Used ORDER BY to sort sales values in descending order
 
 Example:
 
 SELECT *
-FROM orders
+FROM superstore
 WHERE "Category" = 'Technology'
 ORDER BY CAST("Sales" AS REAL) DESC;
 
 4️⃣ Aggregations & Grouping
 
-Performed summary analysis using aggregate functions:
+Performed aggregation analysis using:
 
-SUM() for total sales
+SUM() to calculate total sales
 
-AVG() for average profit
+AVG() to calculate average profit
 
-COUNT() for order volume
+COUNT() to count total orders
 
-Grouped results using GROUP BY to generate meaningful business summaries.
+Grouped data using GROUP BY to generate category-wise and region-wise summaries.
 
-5️⃣ Group-Level Filtering (HAVING)
+5️⃣ HAVING Clause
 
-Applied HAVING to filter aggregated results
+Used HAVING to filter aggregated results
 
-Example: identifying categories with total sales above a defined threshold
+Example: displaying only categories with total sales greater than 100,000
 
 HAVING SUM(CAST("Sales" AS REAL)) > 100000;
 
-6️⃣ Date & Pattern Analysis
+6️⃣ Date & Pattern Filtering
 
-Used BETWEEN to analyze sales within specific date ranges
+Used BETWEEN to analyze data within a date range
 
-Used LIKE for pattern matching on customer names
-
-These techniques support time-based and text-based analysis.
+Used LIKE to perform pattern matching on customer names
 
 7️⃣ Business Insight Query
 
 Identified Top 5 customers by total sales, a common real-world business requirement
 
-Demonstrates combining aggregation, sorting, and limiting results effectively
+This query combines aggregation, grouping, sorting, and limiting results
 
 📁 Repository Structure
 sql-task-3-superstore/
 │
-├── queries_task3.sql      # All SQL queries used in the analysis
-├── sales_summary.csv      # Exported sales summary by category
+├── queries_task3.sql      # All SQL queries used in this task
+├── sales_summary.csv      # Exported total sales by category
 └── README.md              # Project documentation
 
 📈 Key Learnings
@@ -116,15 +106,14 @@ Effective use of GROUP BY with aggregate functions
 
 Handling column names with spaces using double quotes
 
-Writing clean, readable, and reusable SQL queries
+Writing clean, readable SQL scripts
 
-Exporting query outputs for reporting and documentation
+Exporting SQL query results for reporting
 
 🏁 Conclusion
 
-This task strengthened my foundation in SQL querying and analytical thinking.
-By working with a real retail dataset, I developed confidence in transforming raw data into structured insights using SQL.
-
+This task helped me build confidence in SQL fundamentals and understand how SQL is used in real-world data analysis scenarios.
+By working with an actual retail dataset, I improved both my technical querying skills and my ability to present structured analytical results.
 
 👤 Author
 
